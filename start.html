@@ -64,20 +64,94 @@
                             <section id="download-section" class="doc-section">
                                 <h2 class="section-title">Download</h2>
                                 <div class="section-block">
-                                    <p>The necessary materials to ensure a successful Heimdall installation can be first downloaded from the Heimdall site.  First, you must create a user account to be able to obtain these materials.  If you have not already created an account, please refer to the Account Creation section on this page.</p>
-                                    <br />
-                                    <p>After account creation, navigate to the login page of the Heimdall website.  Enter your user credentials and click the login button.  You will be redirected to the splash page of the Heimdall website.  Once there, click the tab labeled ‘Agent’ to move to the Agent page.  From here, you will be able to download Heimdall’s materials.  To initiate the download, click the add agent button located near the middle of the webpage.  This will begin downloading a zipped tar folder entitled <b>Heimdall_v_xxxxxx.tar.gz</b> that contains all the necessary files for agent installation on the target server.  Once this folder is downloaded, you can now move on to the installation phase.</p>
+                                    <p>Heimdall can be downloaded as a <a href="#">tarball</a> or cloned from our <a href="#">git repository</a>.
+                                    </p>
+                                    <a href="#" class="btn btn-green" target="_blank"><i class="fas fa-download"></i>Download .tar.gz</a>
+                                </div>
+                                <div class="section-block">
+                                    <div class="input-group mb-3">
+                                        <input type="text" disabled="true" class="form-control" aria-label="https://github.com/Polyphenolx/SeniorDesign.git" id="clone" value="https://github.com/Polyphenolx/SeniorDesign.git">
+                                      <div class="input-group-append">
+                                        <button class="btn btn-green" data-clipboard-target="#clone">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                      </div>
+                                    </div>
                                 </div>
                             </section><!--//doc-section-->
                             <section id="installation-section" class="doc-section">
                                 <h2 class="section-title">Installation</h2>
                                 <div id="step1"  class="section-block">
-                                    <p>Once the download completes, you should extract the folder to the /usr/local directory on the system.  Navigate to the directory where the downloaded folder is stored and extract it with the following command: </p>
+                                    <p>Installation is simple and only requires NodeJS and PostgreSQL.
+                                    </p>
                                     <div class="code-block">
-                                        <p><code>tar -C /usr/local -xzf Heimdal_v_xxxxxx.tar.gz</code></p>
+                                        <h6>Install the server requirements:</h6>
+                                        <p><code>cd SeniorDesign/server</code></p>
+                                        <p><code>npm install .</code></p>
                                     </div><!--//code-block-->
-                                    <p>Once this command completes, navigate to the /usr/local folder and then move into the newly extracted Heimdall folder.  Inside of the Heimdall folder, there are the necessary executable and binary files associated with Heimdall.  Inside of this directory will be a read me file.  This read me contains detailed instructions to follow as a guided installation process.  Please consult this file for the finishing installation steps to set up the agent on the target server.</p>
-                                    <p>You should now be setup and ready to monitor.  May Heimdall watch over you! </p>
+                                    <div class="code-block">
+                                        <h6>Start the server:</h6>
+                                        <p><code>npm start</code></p>
+                                    </div><!--//code-block-->
+                                    <p>Navigate the web server url (default: <a href="http://localhost:5432">http://localhost:5432</a>) in your browser and follow the on-screen insructions to create a user account.
+                                    </p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                            
+                            <section id="code-section" class="doc-section">
+                                <h2 class="section-title">Configuration</h2>
+                                <p>On-screen instructions will walk you through configuring the web server, new users, and new monitoring agents.</p>
+                                <div id="html" class="section-block">
+                                    <div class="callout-block callout-success">
+                                        <div class="icon-holder">
+                                            <i class="fas fa-thumbs-up"></i>
+                                        </div><!--//icon-holder-->
+                                        <div class="content">
+                                            <h4 class="callout-title">Useful Tip:</h4>
+                                            <p>An agent configuration file will be automatically generated when creating a new connection.</p>
+                                        </div><!--//content-->
+                                    </div>
+                                </div><!--//section-block-->
+                                <div id="javascript" class="section-block">
+                                    <div class="code-block">
+                                        <h6>Server Configuration Example</h6>
+                                        <pre><code class="language-javascript">
+                                        {
+                                          "port": 3000,
+                                          "database": {
+                                            "client": "pg",
+                                            "connection": {
+                                              "host": "ec2-18-220-97-36.us-east-2.compute.amazonaws.com",
+                                              "port": 5432,
+                                              "user": "postgres",
+                                              "password": "dbpass",
+                                              "database": "Heimdall"
+                                            }
+                                          },
+                                          "redis": {
+                                            "host": "192.168.99.100",
+                                            "port": 6379,
+                                            "pass": ""
+                                          },
+                                          "session": {
+                                            "secret": "thisisthesessionsecret",
+                                            "ttl":  86400
+                                          }
+                                        }
+                                        }</code></pre>
+                                    </div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="javascript" class="section-block">
+                                    <div class="code-block">
+                                        <h6>Agent Configuration Example</h6>
+                                        <pre><code class="language-javascript">
+                                    {
+                                        "ID":   1,
+                                        "IpAddr": "http://127.0.0.1",
+                                        "Port": "8080",
+                                        "PollingRate": 1000
+                                    }</code></pre>
+                                    </div><!--//code-block-->
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
                         </div><!--//content-inner-->
@@ -89,8 +163,8 @@
 	                                <a class="nav-link scrollto" href="#account-section">Account Creation</a>
 	                                <a class="nav-link scrollto" href="#download-section">Download</a>
 	                                <a class="nav-link scrollto" href="#installation-section">Installation</a>
+	                                <a class="nav-link scrollto" href="#configuration-section">Configuration</a>
 	                            </nav><!--//doc-menu-->
-	                        
                         </div>
                     </div><!--//doc-sidebar-->
                 </div><!--//doc-body-->              
@@ -117,6 +191,11 @@
     <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>      
     <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                             
     <script type="text/javascript" src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script type="text/javascript">
+        new ClipboardJS('.btn');
+    </script>
+
     
 </body>
 </html> 
