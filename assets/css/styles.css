@@ -284,7 +284,7 @@ select {
 }
 
 .body-red .branding .text-highlight {
-  color: #f77b6b;
+  color: #d90707
 }
 
 .body-pink .branding .text-highlight {
@@ -318,7 +318,7 @@ select {
 }
 
 .body-red .branding .icon {
-  color: #f77b6b;
+  color: #d90707
 }
 
 .body-pink .branding .icon {
@@ -453,7 +453,7 @@ select {
 }
 
 .body-red .doc-header .doc-title {
-  color: #f77b6b;
+  color: #d90707
 }
 
 .body-pink .doc-header .doc-title {
@@ -535,7 +535,7 @@ select {
 
 .question {
   font-weight: 400 !important;
-  color: #3aa7aa;
+  color: #d90707;
 }
 
 .question .body-green {
@@ -874,15 +874,15 @@ select {
 }
 
 .body-red .header {
-  border-color: #f77b6b;
+  border-color: #d90707
 }
 
 .body-red a {
-  color: #f77b6b;
+  color: #d90707
 }
 
 .body-red a:hover {
-  color: #f4503b;
+  color: #d90707
 }
 
 /* Sidebar */
@@ -942,8 +942,8 @@ select {
 }
 
 .body-red .doc-menu .nav-link.active {
-  color: #f77b6b;
-  border-color: #f77b6b;
+  color: #d90707
+  border-color: #d90707
 }
 
 .body-pink .doc-menu .nav-link.active {
@@ -1003,7 +1003,7 @@ select {
 }
 
 .body-red .doc-sub-menu .nav-link.active {
-  color: #f77b6b;
+  color: #d90707
 }
 
 .body-pink .doc-sub-menu .nav-link.active {
