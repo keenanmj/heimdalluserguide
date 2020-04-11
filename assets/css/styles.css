@@ -1394,7 +1394,7 @@ select {
 }
 
 .cards-section .item-red .item-inner {
-  border-top: 3px solid #f77b6b;
+  border-top: 3px solid #d90707;
 }
 
 .cards-section .item-red .item-inner:hover .title {
@@ -1402,7 +1402,7 @@ select {
 }
 
 .cards-section .item-red .icon {
-  color: #f77b6b;
+  color: #d90707;
 }
 
 .cards-section .item-pink .item-inner {
